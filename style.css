@@ -318,8 +318,74 @@ footer {
 
 
 
-/* Responsividade */
 @media (max-width: 960px) {
+    /* Impede a barra de rolagem horizontal */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Estilos do cabeçalho */
+    .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .header .container h1 {
+        white-space: nowrap;
+        font-size: 1.5rem;
+    }
+
+    /* Estilos do menu hambúrguer */
+    .menu-mobile-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 100;
+    }
+    
+    .menu-mobile-icon span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+    }
+
+    /* Esconde a lista de links por padrão */
+    .header .container ul {
+        display: none !important;
+    }
+
+    /* Mostra a lista de links quando a classe 'active' é adicionada ao container */
+    .header .container.active ul {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1a1a2e;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .header .container ul li {
+        margin: 10px 0;
+    }
+
+    .header .container ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    /* Seções de conteúdo */
     .hero-conteudo-wrapper {
         grid-template-columns: 1fr;
     }
@@ -337,10 +403,6 @@ footer {
         flex-direction: column;
     }
 
-    .header .container {
-        flex-direction: column;
-    }
-
     .experiencia-card {
         background: #fff;
         padding: 20px;
@@ -348,29 +410,31 @@ footer {
         border-radius: 15px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         display: flex;
-        align-items: center; /* Alinha o logo e o texto verticalmente */
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
         gap: 20px;
     }
 
     .logo-circle {
-        width: 70px; /* Largura fixa */
-        height: 70px; /* Altura fixa */
-        border-radius: 50%; /* Torna o contêiner do logo um círculo */
-        background-color: #f0f0f0; /* Fundo cinza claro para destacar */
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow: hidden; /* Garante que a imagem não saia do círculo */
+        overflow: hidden;
+        margin-bottom: 15px;
     }
 
     .logo-circle img {
-        max-width: 90%; /* Limita o tamanho máximo do logo dentro do círculo */
+        max-width: 90%;
         max-height: 90%;
-        object-fit: contain; /* Ajusta o logo sem cortar ou esticar, mantendo a proporção */
+        object-fit: contain;
     }
 
     .experiencia-conteudo {
-        /* O texto não estará grudado */
         padding: 0;
         display: flex;
         flex-direction: column;
@@ -395,15 +459,5 @@ footer {
         font-size: 0.95em;
         line-height: 1.5;
         margin-top: 0;
-    }
-
-/* Responsividade para telas menores */
-    .experiencia-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .logo-circle {
-        margin-bottom: 15px;
     }
 }

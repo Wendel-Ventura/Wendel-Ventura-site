@@ -15,6 +15,11 @@
         <header class="header">
             <nav class="container">
                 <h1 class="logo">Meu Portfólio</h1>
+                <div class="menu-mobile-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul>
                     <li><a href="#experiencia">Experiência</a></li>
                     <li><a href="#projetos">Projetos</a></li>
@@ -206,6 +211,15 @@
     <footer>
         <p>&copy; 2025 Meu Portfólio. Todos os direitos reservados.</p>
     </footer>
+
+<script>
+    const menuIcon = document.querySelector('.menu-mobile-icon');
+    const navContainer = document.querySelector('.header .container');
+
+    menuIcon.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+    });
+</script>
 
 </body>
 </html>
