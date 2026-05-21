@@ -1,225 +1,1165 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
+    <meta name="description" content="Ventura Analytics — soluções em Engenharia de Dados, Machine Learning, Automação e BI. CNPJ 62.476.111/0001-26. Resultados reais, stack moderna, empresa regularizada.">
+    <title>Ventura Analytics | Data Science & Automação</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+    <button class="back-top" id="back-top" aria-label="Voltar ao topo">↑</button>
+
     <section id="hero">
-        <header class="header">
+        <header class="header" id="header">
             <nav class="container">
-                <h1 class="logo">Meu Portfólio</h1>
-                <div class="menu-mobile-icon">
+                <a href="#hero" class="logo">
+                    <svg class="logo-mark" width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="vaGrad" x1="0" y1="0" x2="30" y2="26" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#22d3ee"/>
+                                <stop offset="100%" stop-color="#818cf8"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M1 2L15 25L29 2H24L15 19L6 2H1Z" fill="url(#vaGrad)"/>
+                        <line x1="8.5" y1="15" x2="21.5" y2="15" stroke="url(#vaGrad)" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Ventura Analytics</span>
+                </a>
+                <div class="menu-mobile-icon" id="menu-icon">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <ul>
-                    <li><a href="#experiencia">Experiência</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="cursos.html">Cursos</a></li>
+                <ul id="nav-links">
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#projetos">Cases</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="cursos.html">Certificações</a></li>
+                    <li><a href="#orcamento">Orçamento</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
         </header>
 
-        <div class="hero-conteudo-wrapper">
+        <div class="hero-conteudo-wrapper hero-full">
             <div class="hero-texto">
-                <h1>
-                    Bem vindo ao meu portifolio!.
-                </h1>
+                <span class="hero-tag">Aceitando novos projetos</span>
+                <p class="hero-eyebrow"><span id="typewriter">Engenharia de Dados</span><span class="typewriter-cursor"></span></p>
+                <h1>Dados que<br>transformam negócios</h1>
                 <p>
-                    Olá! Me chamo Wendel Ventura, sou Cientista de Dados com experiência em análise de dados e machine learning.
-                    Minha paixão pela área começou há mais de 3 anos e, desde então, venho me aprimorando continuamente, buscando sempre evoluir minhas habilidades técnicas e analíticas.
-                    Atualmente, estou em busca de uma oportunidade como Cientista de Dados, onde eu possa aplicar meu conhecimento para gerar insights e contribuir com soluções inteligentes e eficientes para o negócio.
+                    A <strong>Ventura Analytics</strong> entrega soluções end-to-end em dados, automação e ML —
+                    desde arquitetura de pipelines ETL até modelos em produção e dashboards executivos.
+                    Projetos que saem do papel, com <strong>stack moderna</strong> e comunicação direta
+                    com o especialista responsável.
                 </p>
-                <a href="#contato" class="botao">Entre em contato</a>
-            </div>
-            <div class="hero-imagem">
-                <img src="pictures\img2.jpg" alt="Sua foto de perfil profissional">
+                <div class="hero-skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">n8n</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">ETL / ELT</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="#orcamento" class="botao">
+                        Solicitar Orçamento
+                        <span class="botao-arrow">→</span>
+                    </a>
+                    <a href="#servicos" class="botao botao-outline">
+                        Ver Serviços
+                    </a>
+                </div>
+                <div class="hero-metrics">
+                    <div class="hero-metric-item">
+                        <span class="hm-val">50+</span>
+                        <span class="hm-label">Projetos</span>
+                    </div>
+                    <div class="hm-divider"></div>
+                    <div class="hero-metric-item">
+                        <span class="hm-val">3+</span>
+                        <span class="hm-label">Anos</span>
+                    </div>
+                    <div class="hm-divider"></div>
+                    <div class="hero-metric-item">
+                        <span class="hm-val">960h+</span>
+                        <span class="hm-label">Especialização</span>
+                    </div>
+                    <div class="hm-divider"></div>
+                    <div class="hero-metric-item">
+                        <span class="hm-val">🏢</span>
+                        <span class="hm-label">CNPJ Ativo</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Info Cards -->
     <section id="info-cards" class="container">
-        <div class="info-card">
+        <div class="info-card reveal">
             <h3>3+</h3>
-            <h4>Anos de experiência: </h4>
-            <br>
-            <span>Python</span>
-            <br>
-            <span>SQL</span>
-            <br>
-            <span>Power bi</span>
-            <br>
-            <span>Java</span>
-            <br>
-            <span>R</span>
-            <br>
-            <span>ETL</span>
+            <h4>Anos em Produção</h4>
+            <div class="info-tags">
+                <span>Python</span>
+                <span>SQL</span>
+                <span>AWS</span>
+                <span>ETL</span>
+            </div>
         </div>
-        <div class="info-card">
+        <div class="info-card reveal" style="transition-delay: 0.1s">
             <h3>50+</h3>
-            <h4>Projetos Realizados:</h4>
-            <br>
-            <span>Paineis de Power bi</span><br>
-            <span>Automações em python</span><br>
-            <span>Medelos de Machine learning</span>
+            <h4>Projetos Entregues</h4>
+            <div class="info-tags">
+                <span>Automações</span>
+                <span>Dashboards</span>
+                <span>Modelos ML</span>
+            </div>
         </div>
-        <div class="info-card">
+        <div class="info-card reveal" style="transition-delay: 0.2s">
             <h3>960+</h3>
-            <h4>horas de cursos realizados:</h4><br>
-            <span>
-                Cientista de dados (Alura)<br>
-                Engenheiro de dados (Alura)<br>
-                Machine Learning (Alura)<br>
-                Python 3 (Huawei)<br>
-                Google cloud (Google)
-            </span><br>
+            <h4>Horas de Especialização</h4>
+            <div class="info-tags">
+                <span>Eng. de Dados</span>
+                <span>Data Science</span>
+                <span>Machine Learning</span>
+            </div>
         </div>
-        <div class="info-card">
-            <h3>Meu Melhor<br>Serviço</h3>
-            <p>
-                Desenvolvimento de Aplicativo em Python para Gestão de Matrículas em Creche
-                Criei um aplicativo em Python para automatizar o processo de matrícula em uma creche. O sistema gerava um formulário para preenchimento com os dados completos dos alunos e, a partir dessas informações, criava automaticamente apresentações em PowerPoint (PPT) com os dados para assinatura dos contratos.
-                Além disso, os dados eram armazenados em um banco de dados SQLite3, permitindo fácil consulta e gerenciamento diretamente dentro do aplicativo.
-            </p>
+        <div class="info-card destaque reveal" style="transition-delay: 0.3s">
+            <h3>🏢</h3>
+            <h4>Empresa Regularizada</h4>
+            <p>CNPJ ativo, Simples Nacional — emissão de nota fiscal para pessoas jurídicas.</p>
+            <a href="#contato" class="info-link">Fale conosco →</a>
         </div>
     </section>
 
+    <!-- Serviços -->
+    <section id="servicos" class="container servicos-section">
+        <h2 class="section-title reveal">O que entregamos</h2>
+        <p class="section-subtitle reveal">Soluções end-to-end: da coleta ao insight, da automação ao modelo em produção.</p>
+        <div class="servicos-grid reveal">
+            <div class="servico-card">
+                <div class="servico-icon">🏗️</div>
+                <h3>Data Engineering</h3>
+                <p>Pipelines ETL/ELT, data warehouses, ingestão em tempo real e integração de múltiplos sistemas corporativos.</p>
+                <div class="servico-tags">
+                    <span>Python</span><span>AWS Redshift</span><span>SQL</span><span>APIs</span>
+                </div>
+                <span class="servico-preco">a partir de R$ 2.500</span>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">🤖</div>
+                <h3>Machine Learning</h3>
+                <p>Modelos de classificação, NLP, credit scoring e MLOps — do experimento ao endpoint REST em produção.</p>
+                <div class="servico-tags">
+                    <span>Scikit-learn</span><span>XGBoost</span><span>FastAPI</span><span>Docker</span>
+                </div>
+                <span class="servico-preco">a partir de R$ 3.500</span>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">⚡</div>
+                <h3>Automação de Processos</h3>
+                <p>Scripts Python, workflows n8n, bots operacionais e integrações REST/GraphQL que eliminam trabalho manual.</p>
+                <div class="servico-tags">
+                    <span>Python</span><span>n8n</span><span>REST</span><span>Webhooks</span>
+                </div>
+                <span class="servico-preco">a partir de R$ 1.500</span>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">📊</div>
+                <h3>BI & Analytics</h3>
+                <p>Dashboards Power BI, KPIs executivos, relatórios automatizados e análises estratégicas com dados limpos.</p>
+                <div class="servico-tags">
+                    <span>Power BI</span><span>DAX</span><span>SQL</span><span>Metabase</span>
+                </div>
+                <span class="servico-preco">a partir de R$ 900/dashboard</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases / Projetos -->
     <section id="projetos" class="container">
-        <h2 class="section-title">Como posso ajudar voce?</h2>
-        <p class="section-subtitle">Básicamente posso realizar qualquer automação ou projeto com python, analise de dados e criação dos mesmos, visualizações eu uso o power bi,</p>
+        <h2 class="section-title reveal">Cases & Projetos</h2>
+        <p class="section-subtitle reveal">Soluções reais entregues — automação, pipelines de dados, ML em produção, BI e sistemas.</p>
         <div class="projetos-grid">
-            <div class="projeto-card">
-                <img src="pictures\projeto1.png" alt="Projeto 1">
-                <h4>Projeto da creche</h4><br>
+            <div class="projeto-card reveal">
+                <img src="pictures/projeto1.png" alt="App de Gestão de Matrículas">
+                <div class="projeto-body">
+                    <h4>App de Gestão de Matrículas</h4>
+                    <p>
+                        Aplicativo em Python para automatizar o processo de matrícula em creche. Gerava formulários, criava
+                        apresentações PowerPoint com dados dos alunos para assinatura de contratos, com banco SQLite3 integrado.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Python</span><span>SQLite3</span><span>python-pptx</span>
+                    </div>
+                    <a href="https://github.com/Wendel-Ventura" target="_blank" class="projeto-link">Ver no GitHub →</a>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.1s">
+                <img src="pictures/pbi.png" alt="Workspace Power BI">
+                <div class="projeto-body">
+                    <h4>Workspace Power BI — Time de Indicadores</h4>
+                    <p>
+                        Workspace completa para o time de indicadores, integrando mais de 20 painéis no Power BI com dados
+                        estruturados, visualizações intuitivas e foco em usabilidade para tomada de decisões estratégicas.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Power BI</span><span>DAX</span><span>SQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.2s">
+                <div class="projeto-body sem-img">
+                    <h4>Banco de Dados & Integrações para RH</h4>
+                    <p>
+                        Criação de banco de dados completo para equipes de RH, desde schemas até integração com APIs para
+                        automação de importações. Carregamento de arquivos Excel com Python, Pandas e NumPy.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Python</span><span>SQL</span><span>Pandas</span><span>APIs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.1s">
+                <div class="projeto-banner banner-violet">
+                    <span class="projeto-banner-icon">🥗</span>
+                </div>
+                <div class="projeto-body">
+                    <h4>NutriFlow — Plataforma SaaS de Nutrição</h4>
+                    <p>
+                        Plataforma SaaS completa conectando pacientes, nutricionistas e clínicas. Autenticação multi-perfil,
+                        check-ins de refeições, gráficos de evolução, chat em tempo real e painel admin com analytics de uso.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>FastAPI</span><span>React Native</span><span>Next.js</span><span>SQLite</span><span>JWT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.2s">
+                <div class="projeto-banner banner-blue">
+                    <span class="projeto-banner-icon">⚡</span>
+                </div>
+                <div class="projeto-body">
+                    <h4>Adiante Recebíveis — Suite de Automações</h4>
+                    <p>
+                        Ecossistema de automações para backoffice de fintech: relatório mensal de comissões para 20+ parceiros
+                        (MySQL Aurora + Redshift), reconciliação de pagamentos PIX/Boleto cruzando 4 fontes (Starkbank, Grafeno,
+                        Itaú, banco de dados), notificações de protesto automáticas via Outlook, integração com Pipefy GraphQL
+                        para mover centenas de cards em lote e wizard GUI de liberação de crédito.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Python</span><span>AWS Redshift</span><span>MySQL Aurora</span><span>Pipefy GraphQL</span><span>Tkinter</span><span>Outlook COM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.3s">
+                <div class="projeto-banner banner-amber">
+                    <span class="projeto-banner-icon">🛠️</span>
+                </div>
+                <div class="projeto-body">
+                    <h4>GCB Investimentos — Painel Admin Self-Service</h4>
+                    <p>
+                        Painel Streamlit de operações administrativas substituindo acesso direto ao banco: anonimização de clientes,
+                        cancelamento de investimentos, desbloqueio de contas, atualização de cadastro e reset de BaaS. Inclui
+                        scripts de criação de cupons em lote, cancelamento bulk de underwritings e upload de documentos (lâmina)
+                        para o portal do investidor.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Python</span><span>Streamlit</span><span>REST APIs</span><span>Jupyter</span><span>AWS S3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal">
+                <div class="projeto-banner banner-violet">
+                    <span class="projeto-banner-icon">🎯</span>
+                </div>
+                <div class="projeto-body">
+                    <h4>Classificador Automático de Tickets com NLP</h4>
+                    <p>
+                        Modelo de ML para triagem automática de chamados operacionais. Pipeline completo de texto:
+                        limpeza, vetorização TF-IDF e avaliação de classificadores (Logistic Regression, Random Forest, XGBoost).
+                        Retorno com previsão de categoria e score de confiança para roteamento inteligente de demandas.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Python</span><span>Scikit-learn</span><span>TF-IDF</span><span>XGBoost</span><span>NLP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.1s">
+                <div class="projeto-banner banner-blue">
+                    <span class="projeto-banner-icon">🔄</span>
+                </div>
+                <div class="projeto-body">
+                    <h4>Pipeline de Ingestão & Transformação Real-Time</h4>
+                    <p>
+                        Pipeline orientado a eventos para ingestão de dados financeiros em tempo real via webhooks e APIs.
+                        Transformação e validação com Python, carga incremental no Redshift e monitoramento com CloudWatch.
+                        Alertas automáticos para anomalias de volume, latência e qualidade dos dados.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Python</span><span>AWS Redshift</span><span>CloudWatch</span><span>n8n</span><span>Webhooks</span><span>SQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.2s">
+                <div class="projeto-banner banner-amber">
+                    <span class="projeto-banner-icon">💳</span>
+                </div>
+                <div class="projeto-body">
+                    <h4>API de Credit Scoring com ML em Produção</h4>
+                    <p>
+                        Microserviço REST com FastAPI expondo modelo XGBoost de scoring de crédito.
+                        Feature engineering sobre histórico transacional, serialização com joblib,
+                        validação de payload com Pydantic e resposta com score numérico + faixa de risco.
+                        Containerizado com Docker para deploy em produção.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>FastAPI</span><span>Python</span><span>XGBoost</span><span>Pydantic</span><span>Docker</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projeto-card reveal" style="transition-delay: 0.3s">
+                <div class="projeto-banner banner-emerald">
+                    <span class="projeto-banner-icon">💰</span>
+                </div>
+                <div class="projeto-body">
+                    <h4>Sistema de Gestão Financeira</h4>
+                    <p>
+                        Aplicação web completa de controle financeiro pessoal. Gerencia contas, cartões, parcelas, metas de
+                        poupança e orçamentos com dashboard analítico, score de saúde financeira e projeções de fluxo de caixa.
+                    </p>
+                    <div class="projeto-tags">
+                        <span>Python</span><span>Flask</span><span>SQLite3</span><span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre / Quem somos -->
+    <section id="sobre" class="container sobre-section">
+        <h2 class="section-title reveal">Quem somos</h2>
+        <p class="section-subtitle reveal">A empresa por trás das soluções — e o especialista que as executa.</p>
+        <div class="sobre-grid reveal">
+            <div class="sobre-foto-col">
+                <div class="sobre-foto-wrap">
+                    <img src="pictures/file-_2_.png" alt="Wendel Ventura — Fundador da Ventura Analytics">
+                </div>
+                <div class="sobre-nome">
+                    <h3>Wendel Ventura</h3>
+                    <p>Fundador &amp; Lead Engineer</p>
+                </div>
+                <div class="sobre-sociais">
+                    <a href="https://www.linkedin.com/in/wendelventura" target="_blank" class="sobre-social-btn linkedin-btn">
+                        <img src="pictures/linkedin.png" width="16" height="16" alt="">LinkedIn
+                    </a>
+                    <a href="https://github.com/Wendel-Ventura" target="_blank" class="sobre-social-btn github-btn">
+                        GitHub
+                    </a>
+                </div>
+                <a href="curriculo.pdf" download class="sobre-cv-btn">↓ Baixar CV</a>
+            </div>
+            <div class="sobre-bio-col">
+                <p class="sobre-bio">
+                    A <strong>Ventura Analytics</strong> nasceu da combinação de experiência em empresas líderes —
+                    Grupo Casas Bahia, Tok&amp;Stok, Allied Brasil e Grupo GCB — com a missão de levar soluções
+                    de dados de qualidade enterprise para empresas de qualquer porte.
+                </p>
+                <p class="sobre-bio">
+                    Fundada em agosto de 2025, a empresa entrega projetos completos em Engenharia de Dados,
+                    Machine Learning, Automação e BI. Cada entrega é conduzida diretamente pelo especialista —
+                    sem intermediários, sem surpresas.
+                </p>
+                <div class="diferenciais-grid">
+                    <div class="diferencial-item">
+                        <span class="dif-icon">🎯</span>
+                        <div>
+                            <strong>Entregas em produção</strong>
+                            <p>Não fazemos POCs que ficam na gaveta. O código vai para o ar.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <span class="dif-icon">☁️</span>
+                        <div>
+                            <strong>Stack moderna</strong>
+                            <p>Python, AWS, APIs atuais — sem gambiarras legadas.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <span class="dif-icon">🏢</span>
+                        <div>
+                            <strong>Empresa regularizada</strong>
+                            <p>CNPJ ativo, Simples Nacional, emissão de nota fiscal.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <span class="dif-icon">💬</span>
+                        <div>
+                            <strong>Contato direto</strong>
+                            <p>Você fala direto com quem vai fazer o projeto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Técnico -->
+    <section id="stack" class="container skills-section">
+        <h2 class="section-title reveal">Nossa Stack</h2>
+        <p class="section-subtitle reveal">Tecnologias e ferramentas utilizadas em produção nos projetos da Ventura Analytics.</p>
+        <div class="skills-grid reveal">
+            <div class="skill-category">
+                <h3 class="skill-cat-title"><span class="skill-cat-icon">🏗️</span> Data Engineering</h3>
+                <div class="skill-badges">
+                    <span>ETL / ELT</span><span>Data Pipelines</span><span>Data Warehouse</span>
+                    <span>Data Lake</span><span>Data Modeling</span><span>SQL</span>
+                    <span>Data Quality</span><span>APIs</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="skill-cat-title"><span class="skill-cat-icon">☁️</span> Cloud & DevOps</h3>
+                <div class="skill-badges">
+                    <span>AWS Redshift</span><span>AWS RDS</span><span>AWS S3</span>
+                    <span>CloudWatch</span><span>GCP</span><span>Git / GitHub</span>
+                    <span>Docker</span><span>Logs & Métricas</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="skill-cat-title"><span class="skill-cat-icon">🤖</span> Data Science & MLOps</h3>
+                <div class="skill-badges">
+                    <span>Python</span><span>Pandas</span><span>NumPy</span>
+                    <span>Scikit-learn</span><span>XGBoost</span><span>TF-IDF</span>
+                    <span>Clustering</span><span>Feature Engineering</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="skill-cat-title"><span class="skill-cat-icon">⚡</span> Automação & APIs</h3>
+                <div class="skill-badges">
+                    <span>n8n</span><span>REST APIs</span><span>GraphQL</span>
+                    <span>Webhooks</span><span>Pipefy</span><span>Scripts Python</span>
+                    <span>FastAPI</span><span>Bots Operacionais</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="skill-cat-title"><span class="skill-cat-icon">📊</span> BI & Analytics</h3>
+                <div class="skill-badges">
+                    <span>Power BI</span><span>Metabase</span><span>Tableau</span>
+                    <span>DAX</span><span>KPIs Executivos</span><span>Dashboards Operacionais</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="skill-cat-title"><span class="skill-cat-icon">💻</span> Linguagens</h3>
+                <div class="skill-badges">
+                    <span>Python</span><span>SQL</span><span>JavaScript</span>
+                    <span>C#</span><span>R</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trajetória Profissional -->
+    <section id="historico" class="secao">
+        <h2 class="section-title reveal">Trajetória Profissional</h2>
+
+        <div class="experiencia-card reveal">
+            <div class="logo-circle">
+                <img src="pictures/pj.jpeg" alt="Grupo GCB">
+            </div>
+            <div class="experiencia-conteudo">
+                <div class="exp-header">
+                    <h3>Grupo GCB</h3>
+                    <span class="exp-periodo">Set 2025 — Atual</span>
+                </div>
+                <p class="exp-cargo">Analista de Operações — Dados, Automação & Integrações (PJ)</p>
                 <span>
-                Criei um aplicativo em Python para automatizar o processo de matrícula em uma creche. O sistema gerava um formulário para preenchimento com os dados completos dos alunos e, a partir dessas informações, criava automaticamente apresentações em PowerPoint (PPT) com os dados para assinatura dos contratos.
-                Além disso, os dados eram armazenados em um banco de dados SQLite3, permitindo fácil consulta e gerenciamento diretamente dentro do aplicativo.
-                Link projeto e outros: https://github.com/Wendel-Ventura 
+                    Pipelines Python/n8n para processos operacionais críticos, integração de sistemas via APIs REST/GraphQL e webhooks,
+                    dashboards operacionais no Metabase e investigação N2 com análise de logs e qualidade de dados.
+                    Automação de conciliações, relatórios e atualizações de status entre bancos, Pipefy e sistemas externos.
+                    Suporte a demandas AWS (Redshift, RDS, S3, CloudWatch).
                 </span>
             </div>
-            <div class="projeto-card">
-                <img src="pictures\pbi.png" alt="Projeto 2">
-                <h4>Criação de Workspace para o Time de Indicadores</h4><br>
-                <span>
-                    Desenvolvi uma workspace (WS) completa para o time de indicadores de uma empresa, integrando mais de 20 painéis no Power BI. Os dashboards foram construídos com dados estruturados, visualizações intuitivas e foco em usabilidade, facilitando análises constantes e a tomada de decisões estratégicas.
-                </span>
-                
+        </div>
+
+        <div class="experiencia-card reveal">
+            <div class="logo-circle logo-va">
+                <svg width="28" height="24" viewBox="0 0 30 26" fill="none">
+                    <defs>
+                        <linearGradient id="vaGrad2" x1="0" y1="0" x2="30" y2="26" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#22d3ee"/>
+                            <stop offset="100%" stop-color="#818cf8"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M1 2L15 25L29 2H24L15 19L6 2H1Z" fill="url(#vaGrad2)"/>
+                    <line x1="8.5" y1="15" x2="21.5" y2="15" stroke="url(#vaGrad2)" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
             </div>
-            <div class="projeto-card">
-                <!-- <img src="https://via.placeholder.com/300x200" alt="Projeto 3"> -->
-                <h4>Criação de Bancos de Dados e Integrações Automatizadas para Times de RH</h4><br>
+            <div class="experiencia-conteudo">
+                <div class="exp-header">
+                    <h3>Ventura Analytics</h3>
+                    <span class="exp-periodo">Ago 2025 — Atual</span>
+                </div>
+                <p class="exp-cargo">Fundador — Data, ML & Automation Consulting</p>
                 <span>
-                    Tive a oportunidade de desenvolver, por duas vezes, bancos de dados completos para equipes de Recursos Humanos. Esse processo envolveu desde a organização dos schemas e definição de tipos de tabelas até a criação e integração com APIs para automação das importações de dados.
-                    Além disso, implementei automatizações para o carregamento de arquivos Excel, utilizando Python com bibliotecas como Pandas, NumPy, entre outras, para o tratamento e transformação dos dados.
+                    Soluções completas de dados e automação: diagnóstico, arquitetura, pipelines, dashboards e implantação.
+                    Desenvolvimento de scripts, integrações e produtos analíticos com Python, SQL, APIs e BI.
+                    Aplicação de Machine Learning para classificação de demandas, otimização de processos e geração de insights.
+                </span>
+            </div>
+        </div>
+
+        <div class="experiencia-card reveal">
+            <div class="logo-circle">
+                <img src="pictures/allied.png" alt="Allied Brasil">
+            </div>
+            <div class="experiencia-conteudo">
+                <div class="exp-header">
+                    <h3>Allied Brasil</h3>
+                    <span class="exp-periodo">Jul 2024 — Set 2025</span>
+                </div>
+                <p class="exp-cargo">Analista de Dados — People Analytics</p>
+                <span>
+                    Responsável pelas rotinas de Data Warehouse de RH, automações em Python e integração de múltiplas fontes corporativas.
+                    Dashboards estratégicos em Power BI para liderança e RH. Modelagem e padronização com SQL/Python.
+                    Automações que economizaram <strong style="-webkit-text-fill-color:initial;color:#a5b4fc">10+ horas semanais</strong> e
+                    dashboards que reduziram <strong style="-webkit-text-fill-color:initial;color:#a5b4fc">25% o tempo de análise</strong>.
+                </span>
+            </div>
+        </div>
+
+        <div class="experiencia-card reveal">
+            <div class="logo-circle">
+                <img src="pictures/tokstok.jpeg" alt="Tok&Stok">
+            </div>
+            <div class="experiencia-conteudo">
+                <div class="exp-header">
+                    <h3>Tok&amp;Stok</h3>
+                    <span class="exp-periodo">Nov 2023 — Jun 2024</span>
+                </div>
+                <p class="exp-cargo">Analista de Indicadores</p>
+                <span>
+                    Modelagem de bases de indicadores e rotinas de dados em Data Lake, Excel e Power BI.
+                    Automação de análises com Python, SQL, R e C# para reduzir tarefas manuais.
+                    Construção de dashboards e análises de headcount/orçamento para apoio à tomada de decisão.
+                </span>
+            </div>
+        </div>
+
+        <div class="experiencia-card reveal">
+            <div class="logo-circle">
+                <img src="pictures/grupo cb.jpeg" alt="Grupo Casas Bahia">
+            </div>
+            <div class="experiencia-conteudo">
+                <div class="exp-header">
+                    <h3>Grupo Casas Bahia</h3>
+                    <span class="exp-periodo">Dez 2022 — Out 2023</span>
+                </div>
+                <p class="exp-cargo">Assistente de RH — Dados, BI & SQL</p>
+                <span>
+                    Suporte a bases SQL, ETL, controle de acesso e tabelas de segurança.
+                    Criação e evolução de painéis em Power BI/Tableau — headcount, horas extras e indicadores de RH.
+                    Atuação com dados sensíveis, alta volumetria de arquivos e atendimento a áreas-cliente.
+                </span>
+            </div>
+        </div>
+
+        <div class="experiencia-card reveal">
+            <div class="logo-circle">
+                <img src="pictures/grupo cb.jpeg" alt="Grupo Casas Bahia">
+            </div>
+            <div class="experiencia-conteudo">
+                <div class="exp-header">
+                    <h3>Grupo Casas Bahia</h3>
+                    <span class="exp-periodo">2020 — 2021</span>
+                </div>
+                <p class="exp-cargo">Jovem Aprendiz</p>
+                <span>
+                    Atuação junto à equipe de Gestão Orçamentária com planejamentos estratégicos para otimizar o desempenho financeiro.
+                    Responsável pelo fechamento mensal de contas e análise de resultados.
                 </span>
             </div>
         </div>
     </section>
 
-    <section id="experiencia" class="secao">
-        <h2>Experiência Profissional</h2>
-        <div class="experiencia-card">
-            <div class="logo-circle">
-                <img src="pictures\pj.jpeg" alt="Logo da Empresa 0">
+    <!-- Formação -->
+    <section id="formacao" class="container formacao-section">
+        <h2 class="section-title reveal">Formação & Certificações</h2>
+        <p class="section-subtitle reveal">Base acadêmica sólida e desenvolvimento técnico contínuo.</p>
+        <div class="formacao-grid reveal">
+            <div class="formacao-card">
+                <div class="formacao-icon">🎓</div>
+                <div class="formacao-body">
+                    <span class="formacao-tipo">Graduação</span>
+                    <h4>Bacharelado em Ciência da Computação</h4>
+                    <p>FAM — Faculdade das Américas</p>
+                    <span class="formacao-ano">Em andamento</span>
+                </div>
             </div>
-            <div class="experiencia-conteudo">
-                <h3>Freelancer's</h3>
-                <p>Atuação como PJ em Projetos de Automação, Dados e Desenvolvimento</p>
-                <span>
-                    Atuo como profissional PJ em diversos projetos envolvendo automações de processos, criação e manutenção de bancos de dados, desenvolvimento de dashboards no Power BI e construção de sites e APIs. Minha atuação é voltada à entrega de soluções eficientes, integradas e orientadas à tomada de decisão.
-                </span>
+            <div class="formacao-card">
+                <div class="formacao-icon">🏅</div>
+                <div class="formacao-body">
+                    <span class="formacao-tipo">Certificação Técnica</span>
+                    <h4>Python Fundamentals for IT</h4>
+                    <p>Huawei ICT Academy</p>
+                    <span class="formacao-ano">2023</span>
+                </div>
             </div>
-        </div>
-        <div class="experiencia-card">
-            <div class="logo-circle">
-                <img src="pictures\allied.png" alt="Logo da Empresa 1">
+            <div class="formacao-card">
+                <div class="formacao-icon">⚡</div>
+                <div class="formacao-body">
+                    <span class="formacao-tipo">Trilhas Técnicas</span>
+                    <h4>Cientista de Dados · Engenheiro de Dados · ML</h4>
+                    <p>Alura — 960+ horas concluídas</p>
+                    <span class="formacao-ano">2022 – 2024</span>
+                </div>
             </div>
-            <div class="experiencia-conteudo">
-                <h3>Allied</h3>
-                <p>Analista de RH JR</p>
-                <span>
-                    Elaboração de análises com SQL para apoiar decisões estratégicas de RH. <br>
-                    Desenvolvimento de dashboards em Power BI para indicadores de headcount e benefícios.
-                </span>
-            </div>
-        </div>
-        <div class="experiencia-card">
-            <div class="logo-circle">
-                <img src="pictures\tokstok.jpeg" alt="Logo da Empresa 2">
-            </div>
-            <div class="experiencia-conteudo">
-                <h3>Tokstok</h3>
-                <p>Analista de RH JR</p>
-                <span>
-                    Aplicação de modelos estatísticos e de Machine Learning para a análise de grandes volumes de dados.<br>
-                    Suporte à tomada de decisões por meio da análise de dados e apresentação de insights.<br>
-                    Integração e modelagem de dados em Snowflake.<br>
-                    utomação de relatórios com Python, VBA e C#.
-                </span>
-            </div>
-        </div>
-        <div class="experiencia-card">
-            <div class="logo-circle">
-                <img src="pictures\grupo cb.jpeg" alt="Logo da Empresa 3">
-            </div>
-            <div class="experiencia-conteudo">
-                <h3>Grupo Casas Bahia</h3>
-                <p>Assistente Administrativo</p>
-                <span>
-                    Elaboração de análises com SQL para apoiar decisões estratégicas de RH.<br>
-                    Desenvolvimento de dashboards em Power BI para indicadores de headcount e benefícios.
-                </span>
+            <div class="formacao-card">
+                <div class="formacao-icon">🌐</div>
+                <div class="formacao-body">
+                    <span class="formacao-tipo">Capacitação</span>
+                    <h4>Google Cloud Foundations · Capacitação Tech</h4>
+                    <p>Google · Instituto PROA</p>
+                    <span class="formacao-ano">2021 – 2022</span>
+                </div>
             </div>
         </div>
-        <div class="experiencia-card">
-            <div class="logo-circle">
-                <img src="pictures\grupo cb.jpeg" alt="Logo da Empresa 4">
-            </div>
-            <div class="experiencia-conteudo">
-                <h3>Grupo Casas Bahia</h3>
-                <p>Jovem Aprendiz</p>
-                <span>
-                    Trabalhei em conjunto com a equipe de Gestão Orçamentária, onde realizo planejamentos estratégicos para otimizar o desempenho financeiro da organização. Além disso, sou um dos responsáveis pelo fechamento mensal das contas e pela análise minuciosa dos resultados, buscando constantemente melhorias e soluções para alcançar os melhores resultados possíveis
-                </span>
-            </div>
-        </div>
-        </section>
+    </section>
 
-    <section id="contato" class="card contato-section">
-        <h2>Contato</h2>
+    <!-- Orçamento -->
+    <section id="orcamento" class="container orcamento-section">
+        <h2 class="section-title reveal">Monte seu Orçamento</h2>
+        <p class="section-subtitle reveal">Selecione o tipo de projeto e configure os detalhes — o valor é calculado em tempo real.</p>
+
+        <div class="orcamento-wrapper reveal">
+
+            <div class="orc-bloco">
+                <h3 class="orc-label">Tipo de Serviço</h3>
+                <div class="orc-cards" id="tipo-cards">
+                    <div class="orc-card" data-value="sistema">
+                        <span class="orc-icon">🖥️</span>
+                        <strong>Sistema / App</strong>
+                        <small>Python, Web, APIs</small>
+                    </div>
+                    <div class="orc-card" data-value="analitico">
+                        <span class="orc-icon">📊</span>
+                        <strong>Análise & Power BI</strong>
+                        <small>Dashboards, relatórios</small>
+                    </div>
+                    <div class="orc-card" data-value="automacao">
+                        <span class="orc-icon">⚙️</span>
+                        <strong>Automação</strong>
+                        <small>Scripts, processos</small>
+                    </div>
+                    <div class="orc-card" data-value="banco">
+                        <span class="orc-icon">🗄️</span>
+                        <strong>Banco de Dados</strong>
+                        <small>Schema, integração</small>
+                    </div>
+                </div>
+            </div>
+
+            <div id="orc-dinamico"></div>
+
+            <div class="orc-bloco" id="bloco-prazo" style="display:none">
+                <hr class="orc-divider" style="margin-top:0">
+                <h3 class="orc-label">Prazo de Entrega</h3>
+                <div class="orc-radio-group">
+                    <label class="orc-radio">
+                        <input type="radio" name="prazo" value="urgente">
+                        <span>🔴 Urgente<em>até 1 semana &nbsp;+50%</em></span>
+                    </label>
+                    <label class="orc-radio">
+                        <input type="radio" name="prazo" value="normal" checked>
+                        <span>🟡 Normal<em>2 – 3 semanas</em></span>
+                    </label>
+                    <label class="orc-radio">
+                        <input type="radio" name="prazo" value="flexivel">
+                        <span>🟢 Flexível<em>1 mês ou mais &nbsp;−10%</em></span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="orc-resultado" style="display:none">
+                <hr class="orc-divider">
+                <div class="orc-preco-wrap">
+                    <span class="orc-preco-label">Estimativa de Investimento</span>
+                    <span class="orc-preco" id="orc-preco">R$ 0</span>
+                    <span class="orc-preco-nota">* Valor estimado. Orçamento final confirmado após análise do projeto.</span>
+                </div>
+                <div class="orc-form">
+                    <input type="text"  id="orc-nome"  placeholder="Seu nome completo"  class="orc-input">
+                    <input type="email" id="orc-email" placeholder="Seu melhor e-mail"   class="orc-input">
+                    <textarea id="orc-obs" placeholder="Detalhes adicionais sobre o projeto (opcional)" class="orc-input orc-textarea" rows="3"></textarea>
+                    <button class="botao orc-btn" id="orc-enviar">
+                        <img src="pictures/whats.png" width="18" height="18" alt="" style="filter:brightness(10)">
+                        Enviar pelo WhatsApp
+                        <span class="botao-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="card contato-section reveal">
+        <h2>Vamos trabalhar juntos?</h2>
+        <p class="section-subtitle">A Ventura Analytics está pronta para o seu próximo projeto de dados.</p>
+        <div class="contato-empresa-info">
+            <span>Ventura Analytics · Wendel Ventura de Almeida LTDA</span>
+            <span>CNPJ 62.476.111/0001-26 · Simples Nacional · Emitimos Nota Fiscal</span>
+        </div>
         <div class="contato-links">
-            <a href="https://wa.me/5511961731575?text=Ola%20tudo%20bem?%20Gostaria%20de%20fazer%20um%20orcamento%20de%20projeto/proposta%20de%20emprego." target="_blank" class="botao-whatsapp">
-                <img src="/pictures/whats.png" width="50px" height="50px"  alt="Ícone WhatsApp">
-                Enviar Mensagem
+            <a href="https://wa.me/5511961731575?text=Ola%20tudo%20bem?%20Gostaria%20de%20fazer%20um%20orcamento%20de%20projeto%20com%20a%20Ventura%20Analytics." target="_blank" class="botao-whatsapp">
+                <img src="pictures/whats.png" width="22" height="22" alt="WhatsApp">
+                WhatsApp
             </a>
             <a href="https://www.linkedin.com/in/wendelventura" target="_blank" class="botao-linkedin">
-                <img src="/pictures/linkedin.png" width="50px" height="50px" alt="Ícone LinkedIn">
-                Meu LinkedIn
+                <img src="pictures/linkedin.png" width="22" height="22" alt="LinkedIn">
+                LinkedIn
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Meu Portfólio. Todos os direitos reservados.</p>
+        <div class="footer-grid container">
+            <div class="footer-brand">
+                <a href="#hero" class="logo footer-logo">
+                    <svg class="logo-mark" width="26" height="22" viewBox="0 0 30 26" fill="none">
+                        <defs>
+                            <linearGradient id="vaGrad3" x1="0" y1="0" x2="30" y2="26" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#22d3ee"/>
+                                <stop offset="100%" stop-color="#818cf8"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M1 2L15 25L29 2H24L15 19L6 2H1Z" fill="url(#vaGrad3)"/>
+                        <line x1="8.5" y1="15" x2="21.5" y2="15" stroke="url(#vaGrad3)" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Ventura Analytics</span>
+                </a>
+                <p>Soluções em Data Science, Machine Learning, Automação e Analytics para empresas que precisam de resultados reais.</p>
+            </div>
+            <div class="footer-info">
+                <p><strong>Ventura Analytics</strong></p>
+                <p>Wendel Ventura de Almeida LTDA</p>
+                <p>CNPJ: 62.476.111/0001-26</p>
+                <p>Simples Nacional · Micro Empresa</p>
+                <p>Fundada em agosto de 2025</p>
+            </div>
+            <div class="footer-links">
+                <a href="#servicos">Serviços</a>
+                <a href="#projetos">Cases</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#orcamento">Orçamento</a>
+                <a href="cursos.html">Certificações</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ventura Analytics · Wendel Ventura de Almeida LTDA. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
-<script>
-    const menuIcon = document.querySelector('.menu-mobile-icon');
-    const navContainer = document.querySelector('.header .container');
+    <script>
+        // Sticky header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
 
-    menuIcon.addEventListener('click', () => {
-        navContainer.classList.toggle('active');
-    });
-</script>
+        // Menu mobile
+        const menuIcon = document.getElementById('menu-icon');
+        const navContainer = document.querySelector('.header .container');
+        menuIcon.addEventListener('click', () => navContainer.classList.toggle('active'));
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => navContainer.classList.remove('active'));
+        });
+
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        let mx = 0, my = 0, fx = 0, fy = 0;
+
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            cursor.style.left = mx + 'px';
+            cursor.style.top  = my + 'px';
+        });
+
+        (function animFollower() {
+            fx += (mx - fx) * 0.14;
+            fy += (my - fy) * 0.14;
+            follower.style.left = fx + 'px';
+            follower.style.top  = fy + 'px';
+            requestAnimationFrame(animFollower);
+        })();
+
+        document.querySelectorAll('a, button, .info-card, .projeto-card, .skill-tag, .servico-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                follower.style.transform = 'translate(-50%, -50%) scale(1.6)';
+                follower.style.borderColor = 'rgba(99, 102, 241, 0.7)';
+            });
+            el.addEventListener('mouseleave', () => {
+                follower.style.transform = 'translate(-50%, -50%) scale(1)';
+                follower.style.borderColor = 'rgba(99, 102, 241, 0.45)';
+            });
+        });
+
+        // ── Back to Top ──────────────────────────────────────────
+        const backTop = document.getElementById('back-top');
+        window.addEventListener('scroll', () => {
+            backTop.classList.toggle('visible', window.scrollY > 500);
+        }, { passive: true });
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // ── Active Nav ───────────────────────────────────────────
+        const navSections = ['servicos', 'projetos', 'sobre', 'stack', 'historico', 'formacao', 'orcamento', 'contato'];
+        const navMap = {};
+        navSections.forEach(id => {
+            const link = document.querySelector(`#nav-links a[href="#${id}"]`);
+            if (link) navMap[id] = link;
+        });
+
+        window.addEventListener('scroll', () => {
+            let active = '';
+            navSections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && window.scrollY >= el.offsetTop - 140) active = id;
+            });
+            Object.entries(navMap).forEach(([id, link]) => {
+                link.classList.toggle('nav-active', id === active);
+            });
+        }, { passive: true });
+
+        // ── Typewriter ───────────────────────────────────────────
+        (function() {
+            const roles = [
+                'Engenharia de Dados',
+                'Machine Learning',
+                'Automação de Processos',
+                'Analytics & BI',
+                'Integrações de Sistemas'
+            ];
+            const el = document.getElementById('typewriter');
+            let idx = 0, char = 0, deleting = false;
+
+            function tick() {
+                const word = roles[idx];
+                el.textContent = deleting ? word.slice(0, --char) : word.slice(0, ++char);
+
+                if (!deleting && char === word.length) {
+                    deleting = true;
+                    setTimeout(tick, 2000);
+                    return;
+                }
+                if (deleting && char === 0) {
+                    deleting = false;
+                    idx = (idx + 1) % roles.length;
+                }
+                setTimeout(tick, deleting ? 55 : 85);
+            }
+            tick();
+        })();
+
+        // ── Orçador ──────────────────────────────────────────────
+        const orcState = {
+            tipo: null, tamanho: 'pequeno', tecnologia: 'python',
+            extras: [], dashboards: 1, prazo: 'normal'
+        };
+
+        const orcBase   = { sistema: 2500, analitico: 900, automacao: 1500, banco: 2000 };
+        const orcTam    = { pequeno: 0, medio: 2500, grande: 7000 };
+        const orcTec    = { python: 0, web: 400, java: 800, outro: 400 };
+        const orcExtras = {
+            cloud: 1200, analytics_addon: 800, api: 700,
+            dbConnect: 600, etl: 700, autoUpdate: 450,
+            report: 500, dbApi: 700, integration: 900, cloudDb: 1100
+        };
+        const orcPrazo  = { urgente: 0.5, normal: 0, flexivel: -0.1 };
+
+        const extraLabel = {
+            cloud: 'Infraestrutura Cloud (AWS, GCP…)',
+            analytics_addon: 'Dashboard / Analytics integrado',
+            api: 'Integração com API externa',
+            dbConnect: 'Conexão ao vivo com Banco de Dados',
+            etl: 'Limpeza e transformação dos dados (ETL)',
+            autoUpdate: 'Atualização automática agendada',
+            report: 'Relatório automático por e-mail',
+            dbApi: 'API de acesso REST',
+            integration: 'Integração com sistema existente',
+            cloudDb: 'Hospedagem Cloud (RDS, Firebase…)'
+        };
+
+        function calcPreco() {
+            if (!orcState.tipo) return 0;
+            let total;
+
+            if (orcState.tipo === 'analitico') {
+                const n = orcState.dashboards;
+                const pp = n <= 1 ? 900 : n <= 3 ? 750 : n <= 5 ? 650 : 550;
+                total = n * pp;
+            } else {
+                total = orcBase[orcState.tipo];
+                total += orcTam[orcState.tamanho]   || 0;
+                total += orcTec[orcState.tecnologia] || 0;
+            }
+
+            orcState.extras.forEach(e => total += (orcExtras[e] || 0));
+            total = Math.round(total * (1 + (orcPrazo[orcState.prazo] || 0)));
+            return total;
+        }
+
+        function fmtBRL(n) {
+            return 'R$ ' + n.toLocaleString('pt-BR');
+        }
+
+        let animTarget = 0, animCurrent = 0;
+        function animPrice(target) {
+            animTarget = target;
+            (function step() {
+                const d = animTarget - animCurrent;
+                animCurrent = Math.abs(d) < 8 ? animTarget : animCurrent + d * 0.13;
+                document.getElementById('orc-preco').textContent = fmtBRL(Math.round(animCurrent));
+                if (animCurrent !== animTarget) requestAnimationFrame(step);
+            })();
+        }
+
+        function updatePreco() { animPrice(calcPreco()); }
+
+        function showEl(id, show) {
+            const el = document.getElementById(id);
+            if (el) el.style.display = show ? '' : 'none';
+        }
+
+        function renderDinamico() {
+            const d = document.getElementById('orc-dinamico');
+            const t = orcState.tipo;
+            if (!t) { d.innerHTML = ''; return; }
+
+            const templates = {
+                sistema: `
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Tecnologia principal</h3>
+                        <select class="orc-select" id="orc-tec">
+                            <option value="python">Python</option>
+                            <option value="web">Web / JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="outro">Outra tecnologia</option>
+                        </select>
+                    </div>
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Tamanho do projeto</h3>
+                        <select class="orc-select" id="orc-tam">
+                            <option value="pequeno">Pequeno — funcionalidade única</option>
+                            <option value="medio">Médio — múltiplas telas / módulos</option>
+                            <option value="grande">Grande — sistema completo</option>
+                        </select>
+                    </div>
+                    <div class="orc-opcao-bloco" style="grid-column:1/-1">
+                        <h3 class="orc-label">Recursos adicionais</h3>
+                        <div class="orc-checkbox-group">
+                            <label class="orc-check"><input type="checkbox" data-extra="cloud"> Infraestrutura Cloud (AWS, GCP, Azure…) <span class="orc-check-price">+R$ 1.200</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="analytics_addon"> Dashboard / Analytics integrado <span class="orc-check-price">+R$ 800</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="api"> Integração com API externa <span class="orc-check-price">+R$ 700</span></label>
+                        </div>
+                    </div>`,
+
+                analitico: `
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Quantidade de dashboards</h3>
+                        <select class="orc-select" id="orc-dash">
+                            <option value="1">1 dashboard</option>
+                            <option value="2">2 dashboards</option>
+                            <option value="3">3 dashboards</option>
+                            <option value="5">5 dashboards</option>
+                            <option value="8">8 ou mais dashboards</option>
+                        </select>
+                    </div>
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Fonte dos dados</h3>
+                        <select class="orc-select" id="orc-fonte">
+                            <option value="excel">Excel / CSV (você me envia)</option>
+                            <option value="db">Banco de Dados SQL</option>
+                            <option value="api">API / Fonte online</option>
+                        </select>
+                    </div>
+                    <div class="orc-opcao-bloco" style="grid-column:1/-1">
+                        <h3 class="orc-label">Recursos adicionais</h3>
+                        <div class="orc-checkbox-group">
+                            <label class="orc-check"><input type="checkbox" data-extra="etl"> Limpeza e transformação dos dados (ETL) <span class="orc-check-price">+R$ 700</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="dbConnect"> Conexão ao vivo com banco de dados <span class="orc-check-price">+R$ 600</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="autoUpdate"> Atualização automática agendada <span class="orc-check-price">+R$ 450</span></label>
+                        </div>
+                    </div>`,
+
+                automacao: `
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Complexidade</h3>
+                        <select class="orc-select" id="orc-tam">
+                            <option value="pequeno">Simples — uma tarefa automatizada</option>
+                            <option value="medio">Média — fluxo com múltiplas etapas</option>
+                            <option value="grande">Complexa — sistema completo de automação</option>
+                        </select>
+                    </div>
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Recursos adicionais</h3>
+                        <div class="orc-checkbox-group">
+                            <label class="orc-check"><input type="checkbox" data-extra="api"> Integração com API externa <span class="orc-check-price">+R$ 700</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="cloud"> Execução em cloud (agendamento) <span class="orc-check-price">+R$ 1.200</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="report"> Relatório automático por e-mail <span class="orc-check-price">+R$ 500</span></label>
+                        </div>
+                    </div>`,
+
+                banco: `
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Porte do banco</h3>
+                        <select class="orc-select" id="orc-tam">
+                            <option value="pequeno">Pequeno — até 10 tabelas</option>
+                            <option value="medio">Médio — estrutura completa</option>
+                            <option value="grande">Enterprise — multi-schema, alta escala</option>
+                        </select>
+                    </div>
+                    <div class="orc-opcao-bloco">
+                        <h3 class="orc-label">Recursos adicionais</h3>
+                        <div class="orc-checkbox-group">
+                            <label class="orc-check"><input type="checkbox" data-extra="dbApi"> API de acesso (endpoints REST) <span class="orc-check-price">+R$ 700</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="integration"> Integração com sistema existente <span class="orc-check-price">+R$ 900</span></label>
+                            <label class="orc-check"><input type="checkbox" data-extra="cloudDb"> Hospedagem cloud (RDS, Firebase…) <span class="orc-check-price">+R$ 1.100</span></label>
+                        </div>
+                    </div>`
+            };
+
+            d.innerHTML = `<div class="orc-bloco"><hr class="orc-divider" style="margin-top:0"><div class="orc-opcoes-grid">${templates[t]}</div></div>`;
+
+            const selTec = document.getElementById('orc-tec');
+            if (selTec) {
+                selTec.value = orcState.tecnologia || 'python';
+                orcState.tecnologia = selTec.value;
+                selTec.addEventListener('change', e => { orcState.tecnologia = e.target.value; updatePreco(); });
+            }
+
+            const selTam = document.getElementById('orc-tam');
+            if (selTam) {
+                selTam.value = orcState.tamanho || 'pequeno';
+                orcState.tamanho = selTam.value;
+                selTam.addEventListener('change', e => { orcState.tamanho = e.target.value; updatePreco(); });
+            }
+
+            const selDash = document.getElementById('orc-dash');
+            if (selDash) {
+                selDash.value = String(orcState.dashboards || 1);
+                orcState.dashboards = parseInt(selDash.value);
+                selDash.addEventListener('change', e => { orcState.dashboards = parseInt(e.target.value); updatePreco(); });
+            }
+
+            document.querySelectorAll('[data-extra]').forEach(cb => {
+                cb.checked = orcState.extras.includes(cb.dataset.extra);
+                cb.addEventListener('change', () => {
+                    orcState.extras = Array.from(document.querySelectorAll('[data-extra]:checked')).map(c => c.dataset.extra);
+                    updatePreco();
+                });
+            });
+
+            showEl('bloco-prazo', true);
+            showEl('orc-resultado', true);
+            updatePreco();
+        }
+
+        document.querySelectorAll('#tipo-cards .orc-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('#tipo-cards .orc-card').forEach(c => c.classList.remove('ativo'));
+                card.classList.add('ativo');
+                orcState.tipo      = card.dataset.value;
+                orcState.tamanho   = 'pequeno';
+                orcState.tecnologia = 'python';
+                orcState.extras    = [];
+                orcState.dashboards = 1;
+                renderDinamico();
+            });
+        });
+
+        document.querySelectorAll('[name="prazo"]').forEach(r => {
+            r.addEventListener('change', e => { orcState.prazo = e.target.value; updatePreco(); });
+        });
+
+        document.getElementById('orc-enviar').addEventListener('click', () => {
+            const nome  = document.getElementById('orc-nome').value.trim();
+            const email = document.getElementById('orc-email').value.trim();
+            const obs   = document.getElementById('orc-obs').value.trim();
+
+            if (!nome || !email) {
+                alert('Por favor, preencha seu nome e e-mail antes de enviar.');
+                return;
+            }
+
+            const tipoLabel  = { sistema: 'Sistema / Aplicação', analitico: 'Análise & Power BI', automacao: 'Automação de Processos', banco: 'Banco de Dados & Integração' };
+            const tamLabel   = { pequeno: 'Pequeno', medio: 'Médio', grande: 'Grande / Enterprise' };
+            const tecLabel   = { python: 'Python', web: 'Web / JavaScript', java: 'Java', outro: 'Outra' };
+            const prazoLabel = { urgente: 'Urgente (até 1 semana) +50%', normal: 'Normal (2–3 semanas)', flexivel: 'Flexível (1 mês ou mais) −10%' };
+
+            const preco  = calcPreco();
+            const extras = orcState.extras.length
+                ? orcState.extras.map(e => '  • ' + (extraLabel[e] || e)).join('\n')
+                : '  Nenhum';
+
+            const infoExtra = orcState.tipo === 'analitico'
+                ? `Dashboards: ${orcState.dashboards}`
+                : `Tamanho: ${tamLabel[orcState.tamanho] || '—'}\nTecnologia: ${tecLabel[orcState.tecnologia] || '—'}`;
+
+            const body = [
+                '👋 Olá Wendel! Vim pelo site da *Ventura Analytics* e gostaria de solicitar um orçamento.',
+                '',
+                '👤 *DADOS DE CONTATO*',
+                `Nome: ${nome}`,
+                `E-mail: ${email}`,
+                '',
+                '🛠️ *CONFIGURAÇÃO DO PROJETO*',
+                `Tipo: *${tipoLabel[orcState.tipo] || '—'}*`,
+                infoExtra,
+                `Prazo: ${prazoLabel[orcState.prazo]}`,
+                '',
+                '➕ *Recursos adicionais:*',
+                extras,
+                '',
+                '💰 *ESTIMATIVA DE VALOR*',
+                `*${fmtBRL(preco)}*`,
+                '_(sujeito a confirmação após análise)_',
+                '',
+                obs ? ('📝 *OBSERVAÇÕES*\n' + obs) : ''
+            ].join('\n').trim();
+
+            window.open('https://wa.me/5511961731575?text=' + encodeURIComponent(body), '_blank');
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
