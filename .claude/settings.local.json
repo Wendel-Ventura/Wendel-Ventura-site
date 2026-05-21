@@ -14,7 +14,8 @@
       "Bash(node -e \"const h=require\\('fs'\\).readFileSync\\('c:/Users/Del/trabalhos/Meu site/index.html','utf8'\\);const cards=\\(h.match\\(/projeto-card/g\\)||[]\\).length;console.log\\('projeto-card occurrences:',cards,'\\(esperado: 12 = 6 cards x abertura+fechamento aprox\\)'\\);console.log\\('NutriFlow:',h.includes\\('NutriFlow'\\)\\);console.log\\('GCB APIs:',h.includes\\('GCB APIs'\\)\\);console.log\\('Gestão Financeira:',h.includes\\('Gestão Financeira'\\)\\);console.log\\('projeto-tags:',\\( h.match\\(/projeto-tags/g\\)||[]\\).length,'ocorrências'\\);\")",
       "Bash(dir /s /b \"C:\\\\Users\\\\Del\\\\trabalhos\\\\GCB-API-s\")",
       "Bash(node -e ' *)",
-      "Bash(dir \"c:\\\\Users\\\\Del\\\\trabalhos\\\\Meu site\\\\pictures\" /B)"
+      "Bash(dir \"c:\\\\Users\\\\Del\\\\trabalhos\\\\Meu site\\\\pictures\" /B)",
+      "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\Del\\\\trabalhos\\\\Meu site\\\\Curriculo_Wendel_Ventura_Tech_ATS \\(1\\).pdf\" -NewName \"curriculo.pdf\")"
     ]
   }
 }
