@@ -16,6 +16,7 @@
         { label: 'Certificações & Cursos',  hint: 'página',   href: 'cursos.html' },
         { label: 'Monte seu Orçamento',     hint: 'ir para',  href: NA_INDEX + '#orcamento' },
         { label: 'Contato',                 hint: 'ir para',  href: NA_INDEX + '#contato' },
+        { label: 'DF Finance — SaaS no ar', hint: 'produto',  href: 'https://www.dffinance.com.br/', ext: true },
         { label: 'WhatsApp',                hint: 'abrir',    href: 'https://wa.me/5511961731575?text=Ola%20tudo%20bem?%20Gostaria%20de%20fazer%20um%20orcamento%20com%20a%20Ventura%20Analytics.', ext: true },
         { label: 'LinkedIn',                hint: 'abrir',    href: 'https://www.linkedin.com/in/wendelventura', ext: true },
         { label: 'GitHub',                  hint: 'abrir',    href: 'https://github.com/Wendel-Ventura', ext: true },

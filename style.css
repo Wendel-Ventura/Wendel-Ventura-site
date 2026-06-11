@@ -1879,6 +1879,50 @@ body::before {
     color: var(--text-muted);
 }
 
+/* ── Projeto NO AR (destaque) ─────────────────────────────── */
+.projeto-card.projeto-live {
+    text-decoration: none;
+    color: inherit;
+    border-color: rgba(74, 222, 128, 0.25);
+    box-shadow: var(--shadow), 0 0 36px rgba(74, 222, 128, 0.07);
+}
+
+.projeto-card.projeto-live:hover {
+    border-color: rgba(74, 222, 128, 0.5);
+    box-shadow: var(--shadow-lg), 0 0 48px rgba(74, 222, 128, 0.16);
+}
+
+.live-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #4ade80;
+    background: rgba(7, 8, 13, 0.82);
+    border: 1px solid rgba(74, 222, 128, 0.35);
+    border-radius: 50px;
+    padding: 4px 11px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 7px #4ade80;
+    animation: blink 2.2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
 /* ── Status badge (footer) ────────────────────────────────── */
 .footer-bottom {
     display: flex;
