@@ -5,18 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ventura Analytics — soluções em Engenharia de Dados, Machine Learning, Automação e BI. CNPJ 62.476.111/0001-26. Resultados reais, stack moderna, empresa regularizada.">
     <title>Ventura Analytics | Data Science & Automação</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 26'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='30' y2='26' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23818cf8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M1 2L15 25L29 2H24L15 19L6 2H1Z' fill='url(%23g)'/%3E%3Cline x1='8.5' y1='15' x2='21.5' y2='15' stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+    <meta property="og:title" content="Ventura Analytics | Data Science & Automação">
+    <meta property="og:description" content="Soluções end-to-end em Engenharia de Dados, Machine Learning, Automação e BI. Projetos que saem do papel, com stack moderna.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wendel-ventura.github.io/Wendel-Ventura-site/">
+    <meta property="og:image" content="https://wendel-ventura.github.io/Wendel-Ventura-site/pictures/pbi.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <linearGradient id="iconGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="#818cf8"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="scroll-progress" id="scroll-progress"></div>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
     <button class="back-top" id="back-top" aria-label="Voltar ao topo">↑</button>
 
     <section id="hero">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
         <header class="header" id="header">
             <nav class="container">
                 <a href="#hero" class="logo">
@@ -45,6 +63,9 @@
                     <li><a href="#orcamento">Orçamento</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
+                <button class="cmdk-chip" id="cmdk-chip" aria-label="Abrir busca rápida" title="Busca rápida (Ctrl+K)">
+                    <span class="cmdk-key">Ctrl</span><span class="cmdk-key">K</span>
+                </button>
             </nav>
         </header>
 
@@ -79,24 +100,35 @@
                 </div>
                 <div class="hero-metrics">
                     <div class="hero-metric-item">
-                        <span class="hm-val">50+</span>
+                        <span class="hm-val" data-count="50" data-suffix="+">50+</span>
                         <span class="hm-label">Projetos</span>
                     </div>
                     <div class="hm-divider"></div>
                     <div class="hero-metric-item">
-                        <span class="hm-val">3+</span>
+                        <span class="hm-val" data-count="3" data-suffix="+">3+</span>
                         <span class="hm-label">Anos</span>
                     </div>
                     <div class="hm-divider"></div>
                     <div class="hero-metric-item">
-                        <span class="hm-val">960h+</span>
+                        <span class="hm-val" data-count="960" data-suffix="h+">960h+</span>
                         <span class="hm-label">Especialização</span>
                     </div>
                     <div class="hm-divider"></div>
                     <div class="hero-metric-item">
-                        <span class="hm-val">🏢</span>
+                        <span class="hm-val hm-val-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/><path d="M10 21v-3h4v3"/></svg></span>
                         <span class="hm-label">CNPJ Ativo</span>
                     </div>
+                </div>
+            </div>
+            <div class="hero-terminal-col">
+                <div class="hero-terminal" aria-hidden="true">
+                    <div class="terminal-bar">
+                        <span class="t-dot t-red"></span>
+                        <span class="t-dot t-yellow"></span>
+                        <span class="t-dot t-green"></span>
+                        <span class="terminal-title">ventura@analytics — pipeline.py</span>
+                    </div>
+                    <div class="terminal-body" id="terminal-body"></div>
                 </div>
             </div>
         </div>
@@ -105,7 +137,7 @@
     <!-- Info Cards -->
     <section id="info-cards" class="container">
         <div class="info-card reveal">
-            <h3>3+</h3>
+            <h3 data-count="3" data-suffix="+">3+</h3>
             <h4>Anos em Produção</h4>
             <div class="info-tags">
                 <span>Python</span>
@@ -115,7 +147,7 @@
             </div>
         </div>
         <div class="info-card reveal" style="transition-delay: 0.1s">
-            <h3>50+</h3>
+            <h3 data-count="50" data-suffix="+">50+</h3>
             <h4>Projetos Entregues</h4>
             <div class="info-tags">
                 <span>Automações</span>
@@ -124,7 +156,7 @@
             </div>
         </div>
         <div class="info-card reveal" style="transition-delay: 0.2s">
-            <h3>960+</h3>
+            <h3 data-count="960" data-suffix="+">960+</h3>
             <h4>Horas de Especialização</h4>
             <div class="info-tags">
                 <span>Eng. de Dados</span>
@@ -133,7 +165,7 @@
             </div>
         </div>
         <div class="info-card destaque reveal" style="transition-delay: 0.3s">
-            <h3>🏢</h3>
+            <h3 class="info-icon-svg"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/><path d="M10 21v-3h4v3"/></svg></h3>
             <h4>Empresa Regularizada</h4>
             <p>CNPJ ativo, Simples Nacional — emissão de nota fiscal para pessoas jurídicas.</p>
             <a href="#contato" class="info-link">Fale conosco →</a>
@@ -146,7 +178,7 @@
         <p class="section-subtitle reveal">Soluções end-to-end: da coleta ao insight, da automação ao modelo em produção.</p>
         <div class="servicos-grid reveal">
             <div class="servico-card">
-                <div class="servico-icon">🏗️</div>
+                <div class="servico-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
                 <h3>Data Engineering</h3>
                 <p>Pipelines ETL/ELT, data warehouses, ingestão em tempo real e integração de múltiplos sistemas corporativos.</p>
                 <div class="servico-tags">
@@ -155,7 +187,7 @@
                 <span class="servico-preco">a partir de R$ 2.500</span>
             </div>
             <div class="servico-card">
-                <div class="servico-icon">🤖</div>
+                <div class="servico-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="10" y="10" width="4" height="4"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
                 <h3>Machine Learning</h3>
                 <p>Modelos de classificação, NLP, credit scoring e MLOps — do experimento ao endpoint REST em produção.</p>
                 <div class="servico-tags">
@@ -164,7 +196,7 @@
                 <span class="servico-preco">a partir de R$ 3.500</span>
             </div>
             <div class="servico-card">
-                <div class="servico-icon">⚡</div>
+                <div class="servico-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
                 <h3>Automação de Processos</h3>
                 <p>Scripts Python, workflows n8n, bots operacionais e integrações REST/GraphQL que eliminam trabalho manual.</p>
                 <div class="servico-tags">
@@ -173,7 +205,7 @@
                 <span class="servico-preco">a partir de R$ 1.500</span>
             </div>
             <div class="servico-card">
-                <div class="servico-icon">📊</div>
+                <div class="servico-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M8 17v-5M13 17V8M18 17v-9"/></svg></div>
                 <h3>BI & Analytics</h3>
                 <p>Dashboards Power BI, KPIs executivos, relatórios automatizados e análises estratégicas com dados limpos.</p>
                 <div class="servico-tags">
@@ -184,13 +216,79 @@
         </div>
     </section>
 
+    <!-- Pipeline Animado -->
+    <section id="pipeline" class="container pipeline-section">
+        <h2 class="section-title reveal">Como os dados fluem</h2>
+        <p class="section-subtitle reveal">A arquitetura que entregamos — animada do jeito que ela roda em produção.</p>
+        <div class="pipeline-wrap reveal">
+            <svg viewBox="0 0 920 360" xmlns="http://www.w3.org/2000/svg" class="pipeline-svg" role="img" aria-label="Diagrama animado: fontes de dados passam por ETL, chegam ao data warehouse e alimentam ML e BI">
+                <!-- conexões -->
+                <path id="pl-s1" class="pl-link" d="M170 82 C 220 82, 220 160, 270 168"/>
+                <path id="pl-s2" class="pl-link" d="M170 182 L 270 182"/>
+                <path id="pl-s3" class="pl-link" d="M170 282 C 220 282, 220 204, 270 196"/>
+                <path id="pl-s4" class="pl-link" d="M400 182 L 490 182"/>
+                <path id="pl-s5" class="pl-link" d="M630 168 C 680 160, 670 92, 720 92"/>
+                <path id="pl-s6" class="pl-link" d="M630 196 C 680 204, 670 262, 720 262"/>
+
+                <!-- pacotes de dados viajando -->
+                <circle class="pl-dot" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0s"><mpath href="#pl-s1"/></animateMotion></circle>
+                <circle class="pl-dot" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.9s"><mpath href="#pl-s2"/></animateMotion></circle>
+                <circle class="pl-dot" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#pl-s3"/></animateMotion></circle>
+                <circle class="pl-dot pl-dot-cyan" r="4"><animateMotion dur="2s" repeatCount="indefinite" begin="0.4s"><mpath href="#pl-s4"/></animateMotion></circle>
+                <circle class="pl-dot pl-dot-cyan" r="4"><animateMotion dur="2s" repeatCount="indefinite" begin="1.4s"><mpath href="#pl-s4"/></animateMotion></circle>
+                <circle class="pl-dot pl-dot-green" r="4"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.7s"><mpath href="#pl-s5"/></animateMotion></circle>
+                <circle class="pl-dot pl-dot-green" r="4"><animateMotion dur="2.4s" repeatCount="indefinite" begin="1.9s"><mpath href="#pl-s6"/></animateMotion></circle>
+
+                <!-- fontes -->
+                <g class="pl-node">
+                    <rect x="40" y="60" width="130" height="44" rx="10"/>
+                    <text x="105" y="87" class="pl-label">APIs / SaaS</text>
+                </g>
+                <g class="pl-node">
+                    <rect x="40" y="160" width="130" height="44" rx="10"/>
+                    <text x="105" y="187" class="pl-label">Bancos de Dados</text>
+                </g>
+                <g class="pl-node">
+                    <rect x="40" y="260" width="130" height="44" rx="10"/>
+                    <text x="105" y="287" class="pl-label">Planilhas / Arquivos</text>
+                </g>
+
+                <!-- ETL -->
+                <g class="pl-node pl-node-main">
+                    <rect x="270" y="140" width="130" height="84" rx="12"/>
+                    <text x="335" y="176" class="pl-title">ETL / ELT</text>
+                    <text x="335" y="198" class="pl-sub">Python · Airflow</text>
+                </g>
+
+                <!-- Warehouse -->
+                <g class="pl-node pl-node-main">
+                    <rect x="490" y="140" width="140" height="84" rx="12"/>
+                    <text x="560" y="176" class="pl-title">Warehouse</text>
+                    <text x="560" y="198" class="pl-sub">Redshift · RDS</text>
+                </g>
+
+                <!-- Saídas -->
+                <g class="pl-node pl-node-out">
+                    <rect x="720" y="60" width="160" height="64" rx="12"/>
+                    <text x="800" y="88" class="pl-title">Machine Learning</text>
+                    <text x="800" y="108" class="pl-sub">FastAPI · XGBoost</text>
+                </g>
+                <g class="pl-node pl-node-out">
+                    <rect x="720" y="230" width="160" height="64" rx="12"/>
+                    <text x="800" y="258" class="pl-title">BI &amp; Dashboards</text>
+                    <text x="800" y="278" class="pl-sub">Power BI · Metabase</text>
+                </g>
+            </svg>
+        </div>
+    </section>
+
     <!-- Cases / Projetos -->
     <section id="projetos" class="container">
         <h2 class="section-title reveal">Cases & Projetos</h2>
         <p class="section-subtitle reveal">Soluções reais entregues — automação, pipelines de dados, ML em produção, BI e sistemas.</p>
         <div class="projetos-grid">
             <div class="projeto-card reveal">
-                <img src="pictures/projeto1.png" alt="App de Gestão de Matrículas">
+                <img src="pictures/projeto1.png" loading="lazy" alt="App de Gestão de Matrículas">
                 <div class="projeto-body">
                     <h4>App de Gestão de Matrículas</h4>
                     <p>
@@ -205,7 +303,7 @@
             </div>
 
             <div class="projeto-card reveal" style="transition-delay: 0.1s">
-                <img src="pictures/pbi.png" alt="Workspace Power BI">
+                <img src="pictures/pbi.png" loading="lazy" alt="Workspace Power BI">
                 <div class="projeto-body">
                     <h4>Workspace Power BI — Time de Indicadores</h4>
                     <p>
@@ -360,7 +458,7 @@
         <div class="sobre-grid reveal">
             <div class="sobre-foto-col">
                 <div class="sobre-foto-wrap">
-                    <img src="pictures/file-_2_.png" alt="Wendel Ventura — Fundador da Ventura Analytics">
+                    <img src="pictures/file-_2_.png" loading="lazy" alt="Wendel Ventura — Fundador da Ventura Analytics">
                 </div>
                 <div class="sobre-nome">
                     <h3>Wendel Ventura</h3>
@@ -389,28 +487,28 @@
                 </p>
                 <div class="diferenciais-grid">
                     <div class="diferencial-item">
-                        <span class="dif-icon">🎯</span>
+                        <span class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>
                         <div>
                             <strong>Entregas em produção</strong>
                             <p>Não fazemos POCs que ficam na gaveta. O código vai para o ar.</p>
                         </div>
                     </div>
                     <div class="diferencial-item">
-                        <span class="dif-icon">☁️</span>
+                        <span class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linejoin="round"><path d="M17.5 18a4.5 4.5 0 0 0 .42-8.98 6 6 0 0 0-11.7 1.7A4 4 0 0 0 7 18h10.5z"/></svg></span>
                         <div>
                             <strong>Stack moderna</strong>
                             <p>Python, AWS, APIs atuais — sem gambiarras legadas.</p>
                         </div>
                     </div>
                     <div class="diferencial-item">
-                        <span class="dif-icon">🏢</span>
+                        <span class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/><path d="M10 21v-3h4v3"/></svg></span>
                         <div>
                             <strong>Empresa regularizada</strong>
                             <p>CNPJ ativo, Simples Nacional, emissão de nota fiscal.</p>
                         </div>
                     </div>
                     <div class="diferencial-item">
-                        <span class="dif-icon">💬</span>
+                        <span class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.5 0-2.9-.4-4.1-1L3 20l1-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg></span>
                         <div>
                             <strong>Contato direto</strong>
                             <p>Você fala direto com quem vai fazer o projeto.</p>
@@ -427,7 +525,7 @@
         <p class="section-subtitle reveal">Tecnologias e ferramentas utilizadas em produção nos projetos da Ventura Analytics.</p>
         <div class="skills-grid reveal">
             <div class="skill-category">
-                <h3 class="skill-cat-title"><span class="skill-cat-icon">🏗️</span> Data Engineering</h3>
+                <h3 class="skill-cat-title"><span class="skill-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span> Data Engineering</h3>
                 <div class="skill-badges">
                     <span>ETL / ELT</span><span>Data Pipelines</span><span>Data Warehouse</span>
                     <span>Data Lake</span><span>Data Modeling</span><span>SQL</span>
@@ -435,7 +533,7 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3 class="skill-cat-title"><span class="skill-cat-icon">☁️</span> Cloud & DevOps</h3>
+                <h3 class="skill-cat-title"><span class="skill-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linejoin="round"><path d="M17.5 18a4.5 4.5 0 0 0 .42-8.98 6 6 0 0 0-11.7 1.7A4 4 0 0 0 7 18h10.5z"/></svg></span> Cloud & DevOps</h3>
                 <div class="skill-badges">
                     <span>AWS Redshift</span><span>AWS RDS</span><span>AWS S3</span>
                     <span>CloudWatch</span><span>GCP</span><span>Git / GitHub</span>
@@ -443,7 +541,7 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3 class="skill-cat-title"><span class="skill-cat-icon">🤖</span> Data Science & MLOps</h3>
+                <h3 class="skill-cat-title"><span class="skill-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="10" y="10" width="4" height="4"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span> Data Science & MLOps</h3>
                 <div class="skill-badges">
                     <span>Python</span><span>Pandas</span><span>NumPy</span>
                     <span>Scikit-learn</span><span>XGBoost</span><span>TF-IDF</span>
@@ -451,7 +549,7 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3 class="skill-cat-title"><span class="skill-cat-icon">⚡</span> Automação & APIs</h3>
+                <h3 class="skill-cat-title"><span class="skill-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></span> Automação & APIs</h3>
                 <div class="skill-badges">
                     <span>n8n</span><span>REST APIs</span><span>GraphQL</span>
                     <span>Webhooks</span><span>Pipefy</span><span>Scripts Python</span>
@@ -459,14 +557,14 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3 class="skill-cat-title"><span class="skill-cat-icon">📊</span> BI & Analytics</h3>
+                <h3 class="skill-cat-title"><span class="skill-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M8 17v-5M13 17V8M18 17v-9"/></svg></span> BI & Analytics</h3>
                 <div class="skill-badges">
                     <span>Power BI</span><span>Metabase</span><span>Tableau</span>
                     <span>DAX</span><span>KPIs Executivos</span><span>Dashboards Operacionais</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3 class="skill-cat-title"><span class="skill-cat-icon">💻</span> Linguagens</h3>
+                <h3 class="skill-cat-title"><span class="skill-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-5-6-5M12 19h8"/></svg></span> Linguagens</h3>
                 <div class="skill-badges">
                     <span>Python</span><span>SQL</span><span>JavaScript</span>
                     <span>C#</span><span>R</span>
@@ -774,9 +872,14 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 Ventura Analytics · Wendel Ventura de Almeida LTDA. Todos os direitos reservados.</p>
+            <div class="status-badge" id="status-badge" title="Monitoramento dos sistemas Ventura Analytics em produção">
+                <span class="status-dot"></span>
+                <span id="status-text">todos os sistemas no ar</span>
+            </div>
         </div>
     </footer>
 
+    <script src="tech.js"></script>
     <script>
         // Sticky header
         const header = document.getElementById('header');
@@ -877,6 +980,238 @@
             }
             tick();
         })();
+
+        // ── Scroll Progress ──────────────────────────────────────
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            scrollProgress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+        }, { passive: true });
+
+        // ── Rede de Partículas (hero) ────────────────────────────
+        (function() {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            const ctx = canvas.getContext('2d');
+            const hero = document.getElementById('hero');
+            let W, H, nodes = [], pmx = -9999, pmy = -9999, running = true;
+
+            function resize() {
+                W = canvas.width = hero.offsetWidth;
+                H = canvas.height = hero.offsetHeight;
+                const qty = Math.min(90, Math.floor(W * H / 22000));
+                nodes = Array.from({ length: qty }, () => ({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
+                    r: Math.random() * 1.6 + 0.7
+                }));
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            hero.addEventListener('mousemove', e => {
+                const rect = hero.getBoundingClientRect();
+                pmx = e.clientX - rect.left;
+                pmy = e.clientY - rect.top;
+            });
+            hero.addEventListener('mouseleave', () => { pmx = pmy = -9999; });
+
+            new IntersectionObserver(entries => {
+                running = entries[0].isIntersecting;
+                if (running) requestAnimationFrame(draw);
+            }).observe(hero);
+
+            const LINK = 130;
+            function draw() {
+                if (!running) return;
+                ctx.clearRect(0, 0, W, H);
+
+                for (const n of nodes) {
+                    n.x += n.vx; n.y += n.vy;
+                    if (n.x < 0 || n.x > W) n.vx *= -1;
+                    if (n.y < 0 || n.y > H) n.vy *= -1;
+
+                    const dx = pmx - n.x, dy = pmy - n.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 140 && dist > 0.1) {
+                        n.x -= (dx / dist) * 0.6;
+                        n.y -= (dy / dist) * 0.6;
+                    }
+                }
+
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const a = nodes[i], b = nodes[j];
+                        const d = Math.hypot(a.x - b.x, a.y - b.y);
+                        if (d < LINK) {
+                            ctx.strokeStyle = `rgba(99, 102, 241, ${0.16 * (1 - d / LINK)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(a.x, a.y);
+                            ctx.lineTo(b.x, b.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                for (const n of nodes) {
+                    ctx.fillStyle = 'rgba(129, 140, 248, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                requestAnimationFrame(draw);
+            }
+            requestAnimationFrame(draw);
+        })();
+
+        // ── Terminal do Hero (interativo) ────────────────────────
+        (function() {
+            const body = document.getElementById('terminal-body');
+            if (!body) return;
+            const demo = [
+                { t: '$ python ventura/pipeline.py --env prod', c: 'tl-cmd' },
+                { t: '→ extract    ✓ 12.4k registros · 3 fontes', c: 'tl-ok' },
+                { t: '→ transform  ✓ schema validado · 0 nulos', c: 'tl-ok' },
+                { t: '→ load       ✓ Redshift · 2.1s', c: 'tl-ok' },
+                { t: 'INFO  modelo XGBoost carregado · AUC 0.91', c: 'tl-info' },
+                { t: 'INFO  Ventura Analytics online ▸ digite "help" e dê Enter', c: 'tl-info' }
+            ];
+
+            const comandos = {
+                help: [
+                    ['comandos disponíveis:', 'tl-info'],
+                    ['  whoami    quem está por trás disso', 'tl-cmd'],
+                    ['  stack     tecnologias em produção', 'tl-cmd'],
+                    ['  cases     projetos entregues', 'tl-cmd'],
+                    ['  contact   fala direto comigo', 'tl-cmd'],
+                    ['  clear     limpa o terminal', 'tl-cmd']
+                ],
+                whoami: [
+                    ['Wendel Ventura — Fundador & Lead Engineer', 'tl-ok'],
+                    ['Engenharia de Dados · ML · Automação · BI', 'tl-cmd'],
+                    ['ex: Grupo Casas Bahia, Tok&Stok, Allied, Grupo GCB', 'tl-cmd']
+                ],
+                stack: [
+                    ['python · sql · aws (redshift, rds, s3) · fastapi', 'tl-ok'],
+                    ['scikit-learn · xgboost · airflow · n8n · power bi', 'tl-ok']
+                ],
+                cases: [
+                    ['✓ suite de automações p/ fintech (PIX, comissões)', 'tl-ok'],
+                    ['✓ API de credit scoring com ML em produção', 'tl-ok'],
+                    ['✓ 20+ painéis Power BI p/ time de indicadores', 'tl-ok'],
+                    ['rolando até #projetos…', 'tl-info']
+                ],
+                contact: [
+                    ['abrindo WhatsApp…', 'tl-info']
+                ],
+                sudo: [
+                    ['permissão negada: aqui só o cliente manda 😄', 'tl-info']
+                ]
+            };
+
+            function addLine(text, cls) {
+                const div = document.createElement('div');
+                div.className = 'terminal-line ' + (cls || 'tl-cmd');
+                div.textContent = text;
+                body.insertBefore(div, promptLine || null);
+            }
+
+            let promptLine = null, input = null;
+
+            function buildPrompt() {
+                promptLine = document.createElement('div');
+                promptLine.className = 'terminal-line tl-cmd terminal-prompt';
+                promptLine.innerHTML = '<span class="tp-sign">$&nbsp;</span>';
+                input = document.createElement('input');
+                input.className = 'terminal-input';
+                input.type = 'text';
+                input.autocomplete = 'off';
+                input.spellcheck = false;
+                input.setAttribute('aria-label', 'Terminal interativo');
+                promptLine.appendChild(input);
+                body.appendChild(promptLine);
+
+                body.closest('.hero-terminal').addEventListener('click', () => input.focus());
+                input.addEventListener('keydown', e => {
+                    if (e.key !== 'Enter') return;
+                    const cmd = input.value.trim().toLowerCase();
+                    input.value = '';
+                    if (!cmd) return;
+                    addLine('$ ' + cmd, 'tl-cmd');
+                    if (cmd === 'clear') {
+                        body.querySelectorAll('.terminal-line:not(.terminal-prompt)').forEach(l => l.remove());
+                        return;
+                    }
+                    const resp = comandos[cmd];
+                    if (resp) {
+                        resp.forEach(([t, c]) => addLine(t, c));
+                        if (cmd === 'cases') setTimeout(() => document.getElementById('projetos').scrollIntoView({ behavior: 'smooth' }), 900);
+                        if (cmd === 'contact') setTimeout(() => window.open('https://wa.me/5511961731575?text=Ola!%20Vim%20pelo%20terminal%20do%20site%20:)', '_blank'), 600);
+                    } else {
+                        addLine(`comando não encontrado: ${cmd} — tente "help"`, 'tl-err');
+                    }
+                    body.scrollTop = body.scrollHeight;
+                });
+            }
+
+            let li = 0, ci = 0, current = null;
+            function type() {
+                if (li >= demo.length) { buildPrompt(); return; }
+                if (!current) {
+                    current = document.createElement('div');
+                    current.className = 'terminal-line ' + demo[li].c;
+                    body.appendChild(current);
+                }
+                const full = demo[li].t;
+                ci++;
+                current.textContent = full.slice(0, ci);
+                if (ci >= full.length) {
+                    li++; ci = 0; current = null;
+                    setTimeout(type, demo[li - 1].c === 'tl-cmd' ? 350 : 160);
+                } else {
+                    setTimeout(type, demo[li].c === 'tl-cmd' ? 36 : 10);
+                }
+            }
+            new IntersectionObserver((entries, obs) => {
+                if (entries[0].isIntersecting) { type(); obs.disconnect(); }
+            }).observe(body);
+        })();
+
+        // ── Count-up dos números ─────────────────────────────────
+        (function() {
+            const els = document.querySelectorAll('[data-count]');
+            const io = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    obs.unobserve(entry.target);
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count, 10);
+                    const suffix = el.dataset.suffix || '';
+                    const dur = 1400;
+                    const t0 = performance.now();
+                    (function step(now) {
+                        const p = Math.min((now - t0) / dur, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        el.textContent = Math.round(target * eased) + suffix;
+                        if (p < 1) requestAnimationFrame(step);
+                    })(t0);
+                });
+            }, { threshold: 0.4 });
+            els.forEach(el => io.observe(el));
+        })();
+
+        // ── Spotlight nos cards ──────────────────────────────────
+        document.querySelectorAll('.servico-card, .projeto-card, .info-card, .skill-category').forEach(card => {
+            card.classList.add('spotlight');
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+            });
+        });
 
         // ── Orçador ──────────────────────────────────────────────
         const orcState = {

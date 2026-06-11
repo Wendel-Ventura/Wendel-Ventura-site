@@ -21,6 +21,17 @@
     pointer-events: none;
 }
 
+.cursos-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76em;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    position: relative;
+    z-index: 1;
+}
+
 .cursos-hero h1 {
     font-size: 3em;
     font-weight: 800;
@@ -41,6 +52,57 @@
     max-width: 480px;
     position: relative;
     z-index: 1;
+}
+
+/* ── Stats do hero ────────────────────────────────────────── */
+.cursos-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px 6px;
+    margin: 0 auto 36px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.cstat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 0 26px;
+}
+
+.cstat-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.35em;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.cstat-label {
+    font-size: 0.64em;
+    color: var(--text-dim);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.cstat-divider {
+    width: 1px;
+    height: 34px;
+    background: var(--border);
+    flex-shrink: 0;
 }
 
 /* ── Controles de busca e filtro ──────────────────────────── */
@@ -66,10 +128,15 @@
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 0.9em;
     pointer-events: none;
     z-index: 1;
+    color: var(--text-dim);
+    display: flex;
 }
+
+.search-icon svg { width: 16px; height: 16px; }
+
+.search-wrapper:focus-within .search-icon { color: var(--accent); }
 
 #busca-input {
     width: 100%;
@@ -126,8 +193,9 @@
 }
 
 .contador {
+    font-family: 'JetBrains Mono', monospace;
     color: var(--text-dim);
-    font-size: 0.8em;
+    font-size: 0.76em;
     margin: 2px 0 0 0;
     min-height: 1.2em;
     letter-spacing: 0.3px;
@@ -208,6 +276,7 @@
 
 /* ── Tags de categoria ────────────────────────────────────── */
 .curso-tag {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.66em;
     font-weight: 700;
     padding: 3px 10px;
@@ -341,8 +410,27 @@
 }
 
 /* ── Responsivo ───────────────────────────────────────────── */
+/* ── Entrada animada dos cards ────────────────────────────── */
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .curso-card { animation: cardIn 0.55s ease backwards; }
+    .curso-card:nth-child(2)  { animation-delay: 0.05s; }
+    .curso-card:nth-child(3)  { animation-delay: 0.1s; }
+    .curso-card:nth-child(4)  { animation-delay: 0.15s; }
+    .curso-card:nth-child(5)  { animation-delay: 0.2s; }
+    .curso-card:nth-child(6)  { animation-delay: 0.25s; }
+    .curso-card:nth-child(7)  { animation-delay: 0.3s; }
+    .curso-card:nth-child(8)  { animation-delay: 0.35s; }
+    .curso-card:nth-child(n+9) { animation-delay: 0.4s; }
+}
+
 @media (max-width: 768px) {
     .cursos-hero { padding: 110px 20px 40px; }
+    .cstat { padding: 0 16px; }
     .cursos-hero h1 { font-size: 2.1em; letter-spacing: -0.8px; }
 
     .cursos-grid {
